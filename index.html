@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Tên Công Ty Bất Động Sản Của Bạn] - Kiến Tạo Giá Trị & Ước Mơ</title>
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Body & Container */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #f0f0f0; /* Màu chữ sáng trên nền tối */
+            line-height: 1.7;
+            background-color: #1a1a1a; /* Nền đen sâu */
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0; /* Padding cho các section */
+        }
+
+        /* Headings */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #FFD700; /* Màu vàng kim */
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.6);
+            color: #fff; /* Tiêu đề hero màu trắng nổi bật */
+        }
+
+        h2 {
+            font-size: 3em;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 800;
+            color: #FFD700; /* Tiêu đề section màu vàng */
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #FFD700; /* Đường kẻ vàng */
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #FFEA00; /* Màu vàng sáng hơn cho sub-headings */
+        }
+
+        h4 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #FFD700;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            background-color: #FFD700; /* Nút chính màu vàng */
+            color: #1a1a1a; /* Chữ đen */
+            border: 2px solid #FFD700;
+        }
+
+        .btn-primary:hover {
+            background-color: #E6C200; /* Vàng đậm hơn khi hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-secondary {
+            background-color: #333; /* Nút phụ màu xám đen */
+            color: #FFD700; /* Chữ vàng */
+            border: 2px solid #FFD700;
+        }
+
+        .btn-secondary:hover {
+            background-color: #444;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-details { /* Nút chi tiết cho dự án */
+            background-color: #444;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+
+        .btn-details:hover {
+            background-color: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+        }
+
+        /* Header & Navigation */
+        .hero-section {
+            background: url('anhnen2.jpg') no-repeat center center/cover;
+            position: relative;
+            padding: 120px 0 100px; /* Đã cập nhật padding-top để tránh thanh nav bị fixed */
+            color: #fff;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ đen */
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px; /* Điều chỉnh padding cho vừa ý */
+            position: fixed; /* Đặt là fixed để cố định trên cùng */
+            top: 0;
+            left: 0;
+            width: 100%; /* Tràn hết chiều ngang */
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.8); /* Nền nav hơi trong suốt */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000; /* Đảm bảo nav nằm trên các phần khác */
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em; /* Giữ nguyên font-size cho trường hợp có text */
+            font-weight: 800;
+            color: #FFD700; /* Logo màu vàng */
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex; /* Để căn chỉnh ảnh logo */
+            align-items: center;
+        }
+        /* CSS cho ảnh logo bên trong .logo */
+        .logo img {
+            height: 50px; /* Đã đặt chiều cao logo là 50px */
+            width: auto; /* Để chiều rộng tự động điều chỉnh theo tỷ lệ */
+            margin-right: 10px; /* Khoảng cách nếu có chữ đi kèm logo */
+            vertical-align: middle;
+        }
+
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 40px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-nav ul li a:hover {
+            color: #FFD700; /* Màu vàng khi hover */
+            border-bottom-color: #FFD700;
+        }
+
+        .hero-content {
+            padding-top: 80px; /* Vẫn giữ nguyên, phần padding tổng thể đã được đẩy lên ở .hero-section */
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #eee;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #222; /* Nền đen nhẹ */
+            color: #f0f0f0;
+        }
+
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+            flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 3px solid #FFD700; /* Viền vàng */
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .value-item {
+            background-color: #333; /* Nền xám đen cho item */
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            background-color: #444;
+            border-top-color: #FFD700; /* Viền vàng khi hover */
+        }
+
+        .value-item .icon {
+            font-size: 3.5em;
+            color: #FFD700; /* Icon màu vàng */
+            margin-bottom: 15px;
+        }
+
+        .value-item h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: #1a1a1a; /* Nền đen */
+            color: #f0f0f0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: #222; /* Nền đen nhẹ cho item */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 5px solid transparent; /* Viền dưới mặc định */
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            border-bottom-color: #FFD700; /* Viền vàng khi hover */
+        }
+
+        .service-item .icon {
+            font-size: 4em;
+            color: #FFD700; /* Icon màu vàng */
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background-color: #222; /* Nền đen nhẹ */
+            color: #f0f0f0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .project-item {
+            background-color: #333; /* Nền xám đen cho item */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Thêm con trỏ để chỉ ra có thể click */
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid #FFD700; /* Viền vàng dưới ảnh */
+            transition: border-color 0.3s ease;
+        }
+
+        .project-item:hover img {
+            border-bottom-color: #FFEA00; /* Vàng sáng hơn khi hover */
+        }
+
+        .project-item h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: #FFD700;
+        }
+
+        .project-item p {
+            padding: 0 20px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            color: #ccc;
+        }
+
+        /* Ẩn nút chi tiết trong project-item để thay bằng modal click toàn bộ item */
+        .project-item .btn-details {
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #1a1a1a; /* Nền đen */
+            color: #f0f0f0;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form-wrapper {
+            flex: 1;
+            min-width: 300px;
+            background-color: #222;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .contact-info h3, .contact-form-wrapper h3 {
+            text-align: left;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: #f0f0f0;
+        }
+
+        .contact-info i {
+            color: #FFD700;
+            margin-right: 15px;
+            font-size: 1.3em;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-right: 20px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+            color: #FFEA00;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background-color: #333;
+            color: #f0f0f0;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #bbb;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #FFD700;
+            color: #1a1a1a;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #E6C200;
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            margin-top: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 3px solid #FFD700; /* Viền vàng cho bản đồ */
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000; /* Nền footer đen tuyền */
+            color: #f0f0f0;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 5px solid #FFD700; /* Viền vàng nổi bật */
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* CSS cho modal */
+        .modal {
+            display: none; /* Ẩn ban đầu */
+            position: fixed; /* Cố định trên màn hình */
+            z-index: 1001; /* Đảm bảo hiển thị trên các phần khác */
+            left: 0;
+            top: 0;
+            width: 100%; /* Chiều rộng đầy đủ */
+            height: 100%; /* Chiều cao đầy đủ */
+            overflow: auto; /* Cho phép cuộn nếu nội dung quá dài */
+            background-color: rgba(0,0,0,0.7); /* Nền đen mờ */
+            justify-content: center; /* Căn giữa modal theo chiều ngang */
+            align-items: center; /* Căn giữa modal theo chiều dọc */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto; /* Căn giữa tự động */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Chiều rộng modal */
+            max-width: 700px; /* Giới hạn chiều rộng tối đa */
+            border-radius: 10px;
+            position: relative;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Hiệu ứng animate modal */
+        @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content h3 {
+            color: #FFD700;
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 2em;
+            padding-right: 30px; /* Để tránh chữ đè lên nút đóng */
+        }
+
+        .modal-content p {
+            text-align: left;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #555; /* Màu chữ modal dễ đọc hơn */
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content .btn-primary { /* Điều chỉnh nút trong modal */
+            padding: 10px 20px;
+            font-size: 0.9em;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3em;
+            }
+            h2 {
+                font-size: 2.5em;
+            }
+            .main-nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .main-nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav ul li {
+                margin: 0 15px 10px;
+            }
+            .hero-content {
+                padding-top: 120px; /* Đảm bảo nội dung không bị che trên tablet */
+            }
+            .about-grid, .contact-grid {
+                flex-direction: column;
+            }
+            .about-text, .contact-info, .contact-form-wrapper {
+                text-align: center;
+            }
+            .about-text h3, .contact-info h3, .contact-form-wrapper h3 {
+                text-align: center;
+            }
+            .modal-content {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .about-grid, .values-grid, .services-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .value-item, .service-item, .project-item {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            .contact-info, .contact-form-wrapper {
+                width: 100%;
+                max-width: 500px; /* Giới hạn chiều rộng trên mobile */
+                margin: 0 auto;
+            }
+            .map-container {
+                height: 350px;
+            }
+            .modal-content h3 {
+                font-size: 1.8em;
+            }
+            .modal-content p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .logo {
+                font-size: 1.6em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .main-nav ul li {
+                margin: 0 10px 10px;
+            }
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form button {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+            .modal-content {
+                margin: 10% auto; /* Điều chỉnh vị trí modal trên màn hình nhỏ */
+                padding: 15px;
+            }
+            .close-button {
+                font-size: 24px;
+                right: 15px;
+                top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <nav class="main-nav">
+                <a href="#" class="logo">
+                    <img src="LOGO HOÀNG GIA HOLDING 2-01.png" alt="Logo Công Ty Bất Động Sản">
+                </a>
+                <ul>
+                    <li><a href="#about">Về Chúng Tôi</a></li>
+                    <li><a href="#services">Dịch Vụ</a></li>
+                    <li><a href="#projects">Dự Án</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="hero-content">
+                <h1>Kiến Tạo Ước Mơ - Xây Dựng Tương Lai</h1>
+                <p>Đối tác bất động sản hàng đầu, mang đến những giải pháp toàn diện và giá trị bền vững cho bạn.</p>
+                <a href="#contact" class="btn btn-primary">Tư Vấn Ngay Hôm Nay</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2>Về Chúng Tôi</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="anhnen.jpg" alt="Văn phòng công ty">
+                </div>
+                <div class="about-text">
+                    <h3>Hành Trình Kiến Tạo Giá Trị</h3>
+                    <p><strong>[Tên Công Ty Bất Động Sản Của Bạn]</strong> tự hào là đơn vị tiên phong trong lĩnh vực bất động sản tại Việt Nam với hơn <strong>15 năm kinh nghiệm</strong>. Chúng tôi cam kết mang đến những sản phẩm và dịch vụ vượt trội, đáp ứng mọi nhu cầu từ an cư đến đầu tư.</p>
+                    <p>Sứ mệnh của chúng tôi là tạo lập và phát triển các giá trị bất động sản bền vững, góp phần nâng tầm chất lượng cuộc sống và kiến tạo một tương lai thịnh vượng cho cộng đồng.</p>
+                    <a href="#services" class="btn btn-secondary">Xem Dịch Vụ Của Chúng Tôi</a>
+                </div>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fas fa-handshake icon"></i>
+                    <h4>Uy Tín Hàng Đầu</h4>
+                    <p>Luôn đặt chữ tín lên hàng đầu, đảm bảo mọi cam kết với khách hàng và đối tác.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-briefcase icon"></i>
+                    <h4>Chuyên Nghiệp Toàn Diện</h4>
+                    <p>Đội ngũ chuyên gia giàu kinh nghiệm, làm việc tận tâm và theo quy trình bài bản.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-lightbulb icon"></i>
+                    <h4>Giải Pháp Sáng Tạo</h4>
+                    <p>Không ngừng đổi mới, tìm kiếm và áp dụng các giải pháp tối ưu cho từng dự án.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <h2>Dịch Vụ Nổi Bật Của Chúng Tôi</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-city icon"></i>
+                    <h3>Môi Giới Bất Động Sản</h3>
+                    <p>Cầu nối tin cậy giúp bạn mua, bán, thuê hoặc cho thuê các loại hình bất động sản.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Đầu Tư & Phát Triển</h3>
+                    <p>Phân tích thị trường, đánh giá tiềm năng và phát triển các dự án đột phá.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-gavel icon"></i>
+                    <h3>Tư Vấn Pháp Lý</h3>
+                    <p>Hỗ trợ toàn diện về các thủ tục pháp lý, giấy tờ, hợp đồng, đảm bảo giao dịch an toàn.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-house-user icon"></i>
+                    <h3>Quản Lý Tài Sản</h3>
+                    <p>Giải pháp quản lý tài sản toàn diện, từ bảo trì, bảo dưỡng đến tối ưu hóa hiệu suất cho thuê.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <h2>Dự Án Tiêu Biểu Của Chúng Tôi</h2>
+            <div class="projects-grid">
+                <div class="project-item" data-title="Hoàng gia Luxury" data-image="4.JPG" data-description="Khu căn hộ cao cấp ven sông Sài Gòn, biểu tượng của cuộc sống thượng lưu với tiện ích đẳng cấp và thiết kế sang trọng. Vị trí đắc địa, không gian sống lý tưởng." data-link="#">
+                    <img src="4.JPG" alt="Hoang Gia Luxury">
+                    <h3>Hoàng gia Luxury</h3>
+                    <p>Khu căn hộ cao cấp ven sông Sài Gòn, biểu tượng của cuộc sống thượng lưu.</p>
+                    <a href="#" class="btn btn-details">Xem Chi Tiết</a>
+                </div>
+                <div class="project-item" data-title="Phú Mỹ Hưng - The Horizon" data-image="anhnen2.jpg" data-description="Tuyệt tác kiến trúc hiện đại tại trung tâm đô thị Phú Mỹ Hưng, không gian sống xanh và cộng đồng văn minh. Thiết kế thông minh, nhiều tiện ích nội khu." data-link="#">
+                    <img src="anhnen2.jpg" alt="Phú Mỹ Hưng - The Horizon">
+                    <h3>Phú Mỹ Hưng - The Horizon</h3>
+                    <p>Tuyệt tác kiến trúc hiện đại tại trung tâm đô thị Phú Mỹ Hưng, không gian sống xanh.</p>
+                    <a href="#" class="btn btn-details">Xem Chi Tiết</a>
+                </div>
+                <div class="project-item" data-title="Aqua City Đồng Nai" data-image="3.jpg" data-description="Đô thị sinh thái ven sông đẳng cấp tại Đồng Nai, với quy hoạch đồng bộ, không gian sống xanh mát và tiện ích đa dạng. Cơ hội đầu tư hấp dẫn." data-link="#">
+                    <img src="3.jpg" alt="Aqua City Đồng Nai">
+                    <h3>Aqua City Đồng Nai</h3>
+                    <p>Đô thị sinh thái ven sông đẳng cấp, với quy hoạch đồng bộ và tiện ích đa dạng.</p>
+                    <a href="#" class="btn btn-details">Xem Chi Tiết</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <p class="contact-intro">Hãy để đội ngũ chuyên gia của chúng tôi tư vấn và hỗ trợ bạn đạt được mục tiêu bất động sản.</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 100 Bát Nàn, Phường Bình Trưng Tây, Thủ Đức, Hồ Chí Minh</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>Điện thoại:</strong> [Số điện thoại của bạn]</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> [Email của bạn]</p>
+                    <p><i class="fas fa-clock"></i> <strong>Giờ làm việc:</strong> T2 - T6: 8:00 - 17:30</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3>Gửi Yêu Cầu Tư Vấn</h3>
+                    <form action="#" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Họ và Tên của bạn" required>
+                        <input type="email" name="email" placeholder="Email của bạn" required>
+                        <input type="tel" name="phone" placeholder="Số điện thoại của bạn" required>
+                        <textarea name="message" placeholder="Bạn cần tư vấn về điều gì?" rows="5"></textarea>
+                        <button type="submit" class="btn btn-primary">Gửi Yêu Cầu</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                    <iframe src="https://maps.google.com/?cid=6162153658460170890&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 [Tên Công Ty Bất Động Sản Của Bạn]. Mọi quyền được bảo lưu.</p>
+            <div class="footer-links">
+                <a href="#">Điều khoản sử dụng</a> |
+                <a href="#">Chính sách bảo mật</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Hình ảnh dự án">
+            <p id="modal-description"></p>
+            <p><a id="modal-link" href="#" target="_blank" class="btn btn-primary">Xem Chi Tiết</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Modal functionality
+            const projectItems = document.querySelectorAll('.project-item');
+            const modal = document.getElementById('projectModal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
+            const modalLink = document.getElementById('modal-link');
+            const closeButton = document.querySelector('.close-button');
+
+            projectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.dataset.title;
+                    const image = item.dataset.image;
+                    const description = item.dataset.description;
+                    const link = item.dataset.link || '#'; // Sử dụng '#' nếu không có link
+
+                    modalTitle.textContent = title;
+                    modalImage.src = image;
+                    modalImage.alt = title;
+                    modalDescription.textContent = description;
+                    modalLink.href = link;
+
+                    modal.style.display = "flex"; // Thay vì "block" để căn giữa nội dung
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                modal.style.display = "none";
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
